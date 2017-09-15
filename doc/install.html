@@ -1,0 +1,119 @@
+<html>
+<head>
+    <title>Kavenegar C++ Documents</title>
+    <style>
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 5px;
+    text-align: left;    
+}
+div.container {
+    width: 100%;
+    border: 1px solid gray;
+}
+
+header, footer {
+    padding: 1em;
+    color: white;
+    background-color: black;
+    clear: left;
+    text-align: center;
+}
+
+nav {
+    float: left;
+    max-width: 160px;
+    margin: 0;
+    padding: 1em;
+    color:#4C4C4C;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size:14px;
+    
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    
+}
+   
+nav ul a {
+    text-decoration: none;
+}
+
+article {
+    margin-left: 170px;
+    border-left: 1px solid gray;
+    padding: 1em;
+    overflow: hidden;
+}
+</style>
+</head>
+<body>
+<div id="header" style="background-color:#2F2F2F;margin-top:-8px;margin-left:-8px;margin-right:-8px;height:50px;">
+    <div style="padding-top:8px;padding-left:20px;">
+        <label style="font-family:'Segoe UI Light','Segoe UI','Lucida Grande',Verdana,Arial,Helvetica,sans-serif;font-size:23px;color:#fff;">Kavenegar C++ Document - Installation Guide</label>
+    </div>
+</div>
+
+       <nav >
+  <ul style="border-left:1px solid #BEBEBE; margin-right:100px;">
+    <li style="margin-top:5px;padding-bottom:10px;padding-top:10px;background-color:#EBF8FE;border-left:2px solid #0072C6;padding-left: 30px;width:220px;"><a href="install.html">Install guide</a></li>
+    <li style="margin-top:5px;padding-bottom:10px;padding-top:10px;padding-left: 30px;"><a href="SMSSendRequest.html">SMSSendRequest</a></li>
+      <li style="margin-top:5px;padding-bottom:10px;padding-top:10px;padding-left: 30px;"><a href="SMSGetStatus.html">SMSGetStatus</a></li>
+       <li style="margin-top:5px;padding-bottom:10px;padding-top:10px;padding-left: 30px;"><a href="GetErrorDetail.html">GetErrorDetail</a></li>
+  </ul>
+</nav>
+    <div id="content" style="font-family:Calibri;font-size:17px;margin:15px;display:inline-block;margin-left:110px;">
+        <label style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-size:22px;">Step 1:</label>
+        <br />
+        <ul style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-size:14px;color:#454545;">
+            <li>1. Open Your Visual Studio solution and Go to Properties page (Right-click on project name and last bottom list select properties).</li>
+            <li>2. At very top of the window select <b>Configuration</b> to "All Configurations" and <b>Platform</b> to "All Platforms".</li>
+            <li>3. Under Configuration Properties drop down list select <b>C/C++ -> General -> Additional Include Directories</b> and Enter your KaveNegar C++ include directory.</li>
+            <li>4. Go to Linker drop down list and Select <b>General -> Additional Library Directories</b> and Enter your KaveNegar C++ Lib directory.</li>
+            <li>5. Under Linker drop down list Select <b>Input -> Additional Dependencies</b> and Type <b>Kavenegar.lib</b> for the dependency.</li>
+        </ul>  
+        <label style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-size:14px;">Notice: If you get Error of any type of WinInet header file, Just add <b>WinInet.lib</b> in <b>Input -> Additional Dependencies</b>,<br /> 
+        Or simply add <b>#pragma comment (lib, "Wininet.lib")</b> in your source file.</label>
+        <label>
+        </label>
+        <br /><br />
+        <label style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-size:22px;">Step 2:</label>
+        <ul style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-size:14px;color:#454545;">
+            <li>1. Add <b>#include "kavenegar-api.h"</b> in your source.</li>
+            <li>2. Add <b>using namespace kavenegar</b> in your source for using KaveNegar namespace including classes.</li>
+            <li>3. Use code below that simply implement and shows how it works:</li><br />
+            <div id="box" style="border:1px solid #939393;width:1000px;height:310px;margin-top:5px;">
+                <div id="text" style="margin:30px;font-size:15px;font-family:Consolas,Courier,monospace!important;">
+                    <label>DWORD dwResult = 0;</label><br>
+            <label style="color:blue">CKavenegarAPI</label>* kvng = <label style="color:#A73A3A">new </label><label style="color:blue">CKavenegarAPI</label>;<br />
+            vector "LPCSTR" recpectors { "number1", "number2", etc.. };<br />
+                <br>int res = kvng->SendSMSbyAPIKEY(<label style="color:#277c4e">"YOUR APIKEY"</label>, <label style="color:#277c4e">
+    "SENDER"</label>, <label style="color:#277c4e">"MESSAGE"</label>, recpectors, <label style="color:#D55F49">NULL</label>, <label style="color:#D55F49">NULL</label>, dwResult);<br />
+                    <label>if(!res) {</label><br>&ensp;&ensp;if(dwResult != KAVENEGAR_OK)<br>&ensp;&ensp;{<br>&ensp;&ensp;&ensp;&ensp;std::cout << "Messages has been sent.";<br>&ensp;&ensp;}
+                    <br>
+                    <label>&ensp;&ensp;else{</label><br>
+                    &ensp;&ensp;&ensp;&ensp;std::cout << kvng->GetErrorDetail();
+                    <br>
+                    &ensp;&ensp;}
+                <br>
+            }
+    </div>
+    </div>
+</ul>
+        <label style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-size:14px;">Notice:</label> <label style="color:#cc1c1c;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-size:14px;">Replace <b>< ></b> instead of <b>" "</b> between <b>string</b> tag.</label>
+
+        <br /><br />
+        <label style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-size:22px;">Step 3:</label>
+        <ul style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-size:14px;color:#454545;">
+            <li>1. Build your Project and Run it. It will send a Text message to recpector.</li>
+            <li>2. See other pages for more help. Play with SDK and Enjoy!</li>
+        </ul>
+        Happy Coding... :)
+    </div>
+</body>
+</html>
