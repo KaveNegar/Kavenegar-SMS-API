@@ -57,14 +57,14 @@ using std::boolalpha;
 typedef unsigned __int8 UINT8; // 0 to 255
 
 /* -------------------------------------------------------------------------- */
-/*								Status by Reference							  */
+/*				Status by Reference			      */
 /* -------------------------------------------------------------------------- */
-#define KAVENEGAR_OK						200
-#define KAVENEGAR_INCOMPLETE_PARAMETERS		400
-#define KAVENEGAR_INVALID_USER_ACCOUNT		401
-#define KAVENEGAR_ERROR						402
+#define KAVENEGAR_OK					200
+#define KAVENEGAR_INCOMPLETE_PARAMETERS			400
+#define KAVENEGAR_INVALID_USER_ACCOUNT			401
+#define KAVENEGAR_ERROR					402
 #define KAVENEGAR_AUTH_FAILD				403
-#define KAVENEGAR_SERVER_NOT_RESPOND		409
+#define KAVENEGAR_SERVER_NOT_RESPOND			409
 #define KAVENEGAR_INVALID_RECEIVER			411
 #define KAVENEGAR_INVALID_SENDER			412
 #define KAVENEGAR_MESSAGE_ERROR				413
@@ -74,32 +74,32 @@ typedef unsigned __int8 UINT8; // 0 to 255
 #define KAVENEGAR_ERROR_LENGTH				419
 
 /* -------------------------------------------------------------------------- */
-/*									SMS Status								  */
+/*				SMS Status				      */
 /* -------------------------------------------------------------------------- */
 #define KAVENEGARSMS_IN_QUEUE				1
 #define KAVENEGARSMS_SCHEDULED				2
-#define KAVENEGARSMS_SENT_TO_TELECOM		4
-#define KAVENEGARSMS_SENT_TO_TELECOM_		5
+#define KAVENEGARSMS_SENT_TO_TELECOM			4
+#define KAVENEGARSMS_SENT_TO_TELECOM_			5
 #define KAVENEGARSMS_FAILD_TO_SEND			6
 #define KAVENEGARSMS_DELIVERED				10
 #define KAVENEGARSMS_DELIVERY_FAILD			11
-#define KAVENEGARSMS_CANCEL					13
+#define KAVENEGARSMS_CANCEL				13
 #define KAVENEGARSMS_BLOCKED				14
 #define KAVENEGARSMS_INVALID_SMS_ID			100
 
 /* -------------------------------------------------------------------------- */
-/*									SMS Types								  */
+/*				SMS Types				      */
 /* -------------------------------------------------------------------------- */
-#define ST_DIRECT_NO_SAVE					0
-#define ST_NORMAL							1
-#define ST_SMS_WITH_SAVE					2
-#define ST_CUSTOM_APP_SAVE					3
+#define ST_DIRECT_NO_SAVE				0
+#define ST_NORMAL					1
+#define ST_SMS_WITH_SAVE				2
+#define ST_CUSTOM_APP_SAVE				3
 
 /* -------------------------------------------------------------------------- */
-/*									Maximum Length							  */
+/*				Maximum Length				      */
 /* -------------------------------------------------------------------------- */
-#define MAX_EN_SMS_LENGTH					612
-#define MAX_FA_SMS_LENGTH					268
+#define MAX_EN_SMS_LENGTH				612
+#define MAX_FA_SMS_LENGTH				268
 
 #define VERIFY_LOOKUP_TYPE_SMS 0
 #define VERIFY_LOOKUP_TYPE_CALL 1
