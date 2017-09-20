@@ -15,7 +15,7 @@ Or simply add **#pragma comment (lib, "Wininet.lib")** in your source file.
 1. Add **#include "kavenegar-api.h"** in your source.
 2. Add **using namespace kavenegar** in your source for using KaveNegar namespace including classes.
 3. Use code below that simply implement and shows how it works:
-```
+```c++
 DWORD dwResult = 0;
 CKavenegarAPI* kvng = new CKavenegarAPI;
 vector "LPCSTR" recpectors { "number1", "number2", etc.. };
@@ -39,6 +39,116 @@ std::cout << kvng->GetErrorDetail();
 Happy Coding... :)
 
 
+# SMSSendRequest function 
+
+Sends the specified SMS request to the HTTP server by getting user API-KEY.
+### Syntax 
+```c++
+int SMSSendRequest(
+   _In_  LPCSTR   lpAPIKEY,
+   _In_  LPCSTR   lpSender,
+   _In_  LPCWSTR  lpMessage,
+   _In_  vector   lpReceptors,
+   _In_  DWORD    dwUnixDate,
+   _In_  UINT8    uType,
+   _Out_ DWORD    dwContext
+);
+```
+### Parameters 
+```lpAPIKEY [in]``` 
+A string you got from user panel. 
+
+```lpSender [in] ```
+A string specified sender number. 
+
+```lpMessage [in] ```
+A string for your message to sent. 
+
+```lpReceptors [in] ```
+A vector string to your receptors. 
+
+```dwUnixDate [in] ```
+A long date number specified a Date/Time to send. 
+
+```uType [in] ```
+A int number that specified type of message to send. 
+
+```dwContext [out] ```
+A int number of result of message. if message success, return 200,
+otherwise return KAVENEGAR_ERROR that you can get the exact error type by calling ()[] 
+
+
+### Return value 
+
+Returns  0 if successful, or 1 otherwise. 
+
+
+This function needs: 
+|  -  |  -   |
+| ------------- | ------------- |
+| Header  | kavenegar-api.h |
+|Library  | Kavenegar.lib  |
+| DLL  | Kavenegar.dll  |
+
+
+# SMSGetStatus function 
+
+Sends the specified SMS request to the HTTP server by getting user API-KEY.
+### Syntax 
+```c++
+int SMSGetStatus(
+   _In_  LPCSTR      lpAPIKEY,
+   _In_  vector&     dwMessageIds,
+   _Out_ std::string &lpEntries
+);
+```
+### Parameters 
+
+```lpAPIKEY [in] ```
+A string you got from user panel. 
+
+```dwMessageIds [in] ```
+A string specified sender number. 
+
+```lpEntries [out] ```
+A string that contains message ids, status code and status text 
+
+
+### Return value 
+
+Returns ```0``` if successful, or ```1``` otherwise. 
+
+
+This function needs: 
+|  -  |  -   |
+| ------------- | ------------- |
+| Header  | kavenegar-api.h |
+|Library  | Kavenegar.lib  |
+| DLL  | Kavenegar.dll  |
+
+# GetErrorDetails function 
+Gets the last error has been occured by web server.
+### Syntax 
+```c++
+string GetErrorDetail(VOID);
+````
+
+### Parameters 
+
+This function has no parameters (void). 
+
+
+### Return value 
+
+Returns a string of the last error. 
+
+
+This function needs: 
+|  -  |  -   |
+| ------------- | ------------- |
+| Header  | kavenegar-api.h |
+|Library  | Kavenegar.lib  |
+| DLL  | Kavenegar.dll  |
 
 ## Contribution
 
